@@ -1,4 +1,4 @@
-local sceneClass = require 'classes.scenes'
+local sceneClass = require 'class.scenes'
 
 ---@type table <number, rv_scenes>
 local Scenes = {}
