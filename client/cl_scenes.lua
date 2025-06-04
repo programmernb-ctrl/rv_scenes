@@ -53,7 +53,6 @@ local function startScene(self)
 end
 
 ---@param payload rv_scenes | rv_scenes[]
----@return string
 exports('createScene', function(payload)
     payload = table.type(payload) == 'array' and payload or { payload }
 
