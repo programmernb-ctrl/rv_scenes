@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-version '0.0.2'
+version '0.0.1'
 author 'thirst'
 description 'Utility Script for handling synchronised network scenes.'
 repository 'https://github.com/programmernb-ctrl/rv_scenes'
