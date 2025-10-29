@@ -44,6 +44,7 @@ end
 local function startScene(self)
     if not self.id or self.id == 'scene_none' then return end
 
+    createScene(self);
     NetworkStartSynchronisedScene(self.scene);
     Wait(GetAnimDuration(self.animDict, self.animName) * 1000);
     NetworkStopSynchronisedScene(self.scene);
@@ -59,8 +60,7 @@ exports('CreateScene', function(payload)
         local scene = sceneClass:new(payload[i])
 
         scene.resource = GetInvokingResource() or GetCurrentResourceName()
-        scene.onCreate = createScene
-        scene.startScene = startScene
+        scene.start = startScene
 
         Scenes[#Scenes+1] = scene
     end
@@ -80,4 +80,3 @@ exports('GetSceneById', function(id)
         end
     end
 end)
-
