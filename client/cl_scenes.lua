@@ -13,11 +13,9 @@ local function createScene(self)
         lib.requestAnimDict(self.animDictCam);
     end
 
-    local scene = NetworkCreateSynchronisedScene(self.coords.x, self.coords.y, self.coords.z, self.rotation.x,
-        self.rotation.y, self.rotation.z, 2, true, false, 1.0, 0.0, 1.0);
+    local scene = NetworkCreateSynchronisedScene(self.coords.x, self.coords.y, self.coords.z, self.rotation.x, self.rotation.y, self.rotation.z, 2, true, false, 1.0, 0.0, 1.0);
 
-    NetworkAddPedToSynchronisedScene(cache.ped, scene, self.animDict, self.animName, self.blendIn, self.blendOut,
-        self.syncedSceneFlags, self.ragdollFlags, self.blendInDelta, 0);
+    NetworkAddPedToSynchronisedScene(cache.ped, scene, self.animDict, self.animName, self.blendIn, self.blendOut, self.syncedSceneFlags, self.ragdollFlags, self.blendInDelta, 0);
 
     if self.peds then
         for i = 1, #self.peds do
@@ -53,7 +51,7 @@ local function startScene(self)
 end
 
 ---@param payload rv_scenes | rv_scenes[]
-exports('createScene', function(payload)
+exports('CreateScene', function(payload)
     payload = table.type(payload) == 'array' and payload or { payload }
 
     for i = 1, #payload do
@@ -64,13 +62,13 @@ exports('createScene', function(payload)
         scene.onCreate = createScene
         scene.startScene = startScene
 
-        Scenes[#Scenes + 1] = scene
+        Scenes[#Scenes+1] = scene
     end
 end)
 
 ---@param id string
 ---@return rv_scenes | nil
-exports('getSceneById', function(id)
+exports('GetSceneById', function(id)
     for i = 1, #Scenes do
         local scene = Scenes[i]
         if scene then
@@ -82,3 +80,4 @@ exports('getSceneById', function(id)
         end
     end
 end)
+
