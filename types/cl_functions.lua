@@ -3,8 +3,8 @@
 ---**`client`**
 
 ---@param payload rv_scenes | rv_scenes[]
-function exports.rv_scenes:createScene(payload) end
+function exports.rv_scenes:CreateScene(payload) end
 
 ---@param id string
 ---@return rv_scenes | nil
-function exports.rv_scenes:getSceneById(id) end
+function exports.rv_scenes:GetSceneById(id) end
