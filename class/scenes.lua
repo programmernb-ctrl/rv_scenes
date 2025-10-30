@@ -22,9 +22,8 @@
 ---@field blendInDelta number
 ---@field syncedSceneFlags number
 ---@field ragdollFlags number
----@field onCreate function
----@field startScene function
 ---@field resource string
+---@field start function
 local scenes_class = lib.class('rv_scenes')
 
 ---@param payload rv_scenes
@@ -47,8 +46,7 @@ function scenes_class:constructor(payload)
     self.syncedSceneFlags = payload.syncedSceneFlags or (64|128|16384)
     self.ragdollFlags = payload.ragdollFlags or 0
 
-    self.onCreate = payload.onCreate
-    self.startScene = payload.startScene;
+    self.start = payload.start;
 end
 
 return scenes_class
